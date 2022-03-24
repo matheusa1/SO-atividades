@@ -20,11 +20,11 @@ int main() {
         scanf("%s", command);
 
         for(int i = 0; command[i] != '\0'; i++) {
-            if (command[i] == '9') {
+            if (command[i] == ' ') {
                 int count = 0;
                 flag = 1;
                 for(int j = i + 1; command[j] != '\0'; j++) {
-                    if (params[j] == '9') {
+                    if (params[j] == ' ') {
                         int count2 = 0;
                         flag2 = 1;     
                         for(int k = j + 1; command[k] != '\0'; k++) {
