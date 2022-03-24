@@ -2,6 +2,14 @@
 
 Repositório contendo os códigos das atividades 2 de Sistemas Operacionais.
 
+## Libs usadas
+
+### <string.h> para tratar strings.
+
+### <sys/types.h> para ter acesso a tipagem pid_t.
+
+### <unistd.h> para usar o comando fork();
+
 ## Como rodar:
 
 ### Tree
