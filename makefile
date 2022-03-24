@@ -3,7 +3,7 @@ tree:
 	./main.exe
 
 command:
-	gcc commandSon.c -o main.exe
+	gcc commandChild.c -o main.exe
 	./main.exe
 
 array:

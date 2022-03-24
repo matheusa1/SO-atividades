@@ -47,13 +47,16 @@ int main() {
 
         if(flag == 1) {
             if(flag2 == 1) {
+            fork();
             char* cmd[] = { command, params, params2, (char*) 0};
             execv(file, cmd);    
             } else {
+                fork();
                 char* cmd[] = { command, params, (char*) 0};
                 execv(file, cmd);
             }
         } else {
+            fork();
             char* cmd[] = { command, (char*) 0};
             execv(file, cmd);
         }
