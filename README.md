@@ -2,36 +2,109 @@
 
 Repositório contendo os códigos das atividades 2 de Sistemas Operacionais.
 
-## Libs usadas
+## Tree
 
-### <string.h> para tratar strings.
+Informe a profundidade da árvore a ser criada.
 
-### <sys/types.h> para ter acesso a tipagem pid_t.
+### Bibliotecas utilizadas:
 
-### <unistd.h> para usar o comando fork();
+- stdio.h
+- sys/types.h
+- unistd.h
+- sys/wait.h
 
-## Como rodar:
+### Compilar o código:
 
-### Tree
+```bash
+  make tree
+```
 
-`make tree`
+### Como executar:
+
+```bash
+  ./main
+```
 
 Informe o número de galhos requeridos que será criado uma sequencia de fork() com o número de galhos desejados.
 
-### CommandChild
+## CommandChild
 
-`make command`
+Informe um comando, e o processo filho executará.
 
-Informe qual o comando que o Child executará.
+### Bibliotecas utilizadas:
 
-### ArrayDivision
+- stdio.h
+- unistd.h
+- sys/types.h
+- string.h
+- sys/wait.h
 
-`make array`
+### Compilar o código:
 
-Informe o tamanho do array, os valores do array, a quandidade de Childs e o valor a ser encontrado, que o algoritmo retornará um a posição do item no array e o pid do Child.
+```bash
+  make command
+```
 
-### Simple Shell
+### Como executar:
 
-`make shell`
+```bash
+  ./main <comando> [argumentos...]
+```
 
-Uma simples interface de shell, feita para rodar o comando desejado. Feito para treinar a execução do exec.
+#### Exemplo
+
+```bash
+  ./main ls -lha
+```
+
+```bash
+  ./main touch teste.txt
+```
+
+## ArrayDivision
+
+Informe a quantidade de filhos, o tamanho do vetor e o valor a ser buscado.
+O programa te retornará a posição do array onde o valor desejado estiver, caso exista o valor no array.
+
+### Libs utilizadas:
+
+- stdio.h
+- unistd.h
+- sys/types.h
+- stdlib.h
+
+### Compilar o código:
+
+```bash
+  make array
+```
+
+### Como executar
+
+```bash
+  ./main
+```
+
+## Simple Shell
+
+Uma simples interface de shell, feita para rodar o comando desejado.
+Após executar o programa, pode ser utilizado como uma shell normal, podendo ser executado comandos em segundo plano e com o operador |
+
+### Bibliotecas utilizadas:
+
+- stdio.h
+- unistd.h
+- string.h
+- sys/wait.h
+
+### Compilar o código:
+
+```bash
+  make shell
+```
+
+### Como executar:
+
+```bash
+  ./main
+```

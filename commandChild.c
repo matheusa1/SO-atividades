@@ -1,3 +1,7 @@
+// Descrição: Programa que executa um comando passado como argumento.
+// Autor: Matheus Andrade
+// Data: 2024-10-24
+
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>

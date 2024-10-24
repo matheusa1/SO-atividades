@@ -1,3 +1,7 @@
+// Descrição: Implementação de um shell básico que executa comandos do sistema operacional.
+// Autor: Matheus Andrade
+// Data: 2024-10-24
+
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>

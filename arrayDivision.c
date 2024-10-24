@@ -1,3 +1,7 @@
+// Descrição: Programa que divide um array em n partes e cria n processos filhos para procurar um valor em cada parte
+// Autor: Matheus Andrade
+// Data: 2024-10-24
+
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>

@@ -1,3 +1,7 @@
+// Descrição: Programa que cria uma árvore de processos de acordo com a profundidade informada pelo usuário.
+// Autor: Matheus Andrade
+// Data: 2024-10-24
+
 #include <stdio.h>
 #include <sys/types.h>
 #include <unistd.h>
