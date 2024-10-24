@@ -1,66 +1,36 @@
 #include <stdio.h>
 #include <unistd.h>
-#include <sys/types.h>
 #include <string.h>
+#include <sys/wait.h>
 
 int main() {
+    char command[1024];
+    pid_t pid;
+    int status;
 
-    int flag = 0;
-    int flag2 = 0;
-    char command[50];
-    char params[50];
-    char params2[50];
+    while (1) {
+        printf("basicShell > ");
+        fgets(command, sizeof(command), stdin);
 
-    while(1) {
-        char file[50];
-        file[0] = '\0';
-        strcat(file, "/bin/");
-        printf("Interface Shell\n\n\n\n\n\nDigite o comando desejado\n > ");
-        scanf("%s", command);
+        command[strcspn(command, "\n")] = 0;
 
-        for(int i = 0; command[i] != '\0'; i++) {
-            if (command[i] == ' ') {
-                int count = 0;
-                flag = 1;
-                for(int j = i + 1; command[j] != '\0'; j++) {
-                    if (params[j] == ' ') {
-                        int count2 = 0;
-                        flag2 = 1;     
-                        for(int k = j + 1; command[k] != '\0'; k++) {
-                            params2[count2] = command[k];
-                            count2++;
-                        }
-                        params[j] = '\0';
-                        break;
-                    }
-                    params[count] = command[j];
-                    count++;
-                
-            }
-            command[i] = '\0';
+        if (strcmp(command, "exit") == 0) {
             break;
-            }
         }
 
-        strcat(file, command);
-
-        if(flag == 1) {
-            if(flag2 == 1) {
-            fork();
-            char* cmd[] = { command, params, params2, (char*) 0};
-            execv(file, cmd);    
-            } else {
-                fork();
-                char* cmd[] = { command, params, (char*) 0};
-                execv(file, cmd);
-            }
+        pid = fork();
+        if (pid < 0) {
+            perror("Fork failed");
+            continue;
+        } else if (pid == 0) {
+            char *args[] = {"/bin/sh", "-c", command, NULL};
+            execvp(args[0], args);
+            perror("Exec failed");
+            _exit(1);
         } else {
-            fork();
-            char* cmd[] = { command, (char*) 0};
-            execv(file, cmd);
+            if (strchr(command, '&') == NULL) {
+                waitpid(pid, &status, 0);
+            }
         }
-
     }
-
-    return 0;
 }
