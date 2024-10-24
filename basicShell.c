@@ -9,7 +9,7 @@ int main() {
     int status;
 
     while (1) {
-        printf("basicShell > ");
+        printf("basicShell> ");
         fgets(command, sizeof(command), stdin);
 
         command[strcspn(command, "\n")] = 0;
